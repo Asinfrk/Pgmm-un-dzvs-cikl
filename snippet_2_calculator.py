@@ -5,5 +5,5 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
-print(add(5, 3))
-print(subtract(10, 4))
+print(add(4, 7))
+print(subtract(1, 23))
