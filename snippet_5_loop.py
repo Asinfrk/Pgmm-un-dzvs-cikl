@@ -1,5 +1,5 @@
 # For Loop
-for i in range(1, 6):
+for i in range(1, 7):
     print(f'Number: {i}')
 
 # While Loop
