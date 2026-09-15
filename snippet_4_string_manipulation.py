@@ -1,6 +1,6 @@
 # String Manipulation
 name = 'Python'
-message = f'Hello, {name}!'
-print(message)
+mess = f'Hello, {name}!'
+print(mess)
 print(name.upper())
 print(name.lower())
