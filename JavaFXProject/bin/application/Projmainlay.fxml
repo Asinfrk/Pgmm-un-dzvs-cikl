@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="820.0" prefWidth="1100.0" style="-fx-background-color: #0d0d1a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PMainLayCon">
+
+  <!-- ── Top navigation bar ───────────────────────────────── -->
+  <HBox alignment="CENTER_LEFT" layoutX="0" layoutY="0" prefHeight="56" prefWidth="1100" spacing="16" style="-fx-background-color:#16162a; -fx-padding:0 24;">
+
+    <Label style="-fx-font-size:22;" text="🏀" />
+    <Label style="-fx-text-fill:#c9a84c; -fx-font-size:15; -fx-font-weight:bold; -fx-letter-spacing:3;" text="BASKETBALL LEAGUE MANAGER" />
+
+    <!-- Spacer -->
+    <Region HBox.hgrow="ALWAYS" />
+
+    <Label fx:id="loggedInLabel" style="-fx-text-fill:#8888aa; -fx-font-size:12;" text="Admin" />
+
+    <Button fx:id="logoutBtn" style="-fx-background-color:#2a1a1a;                    -fx-text-fill:#e05555;                    -fx-font-size:12;                    -fx-font-weight:bold;                    -fx-background-radius:6;                    -fx-border-color:#e05555;                    -fx-border-radius:6;                    -fx-padding:7 16;                    -fx-cursor:hand;" text="⏻  Logout" />
+  </HBox>
+
+  <!-- Gold accent line under nav -->
+  <Rectangle fill="#c9a84c" height="2" layoutX="0" layoutY="56" width="1100" />
+
+  <!-- ── Tab pane ─────────────────────────────────────────── -->
+  <TabPane layoutX="0" layoutY="58" prefHeight="762" prefWidth="1100" style="-fx-background-color:#0d0d1a; -fx-tab-min-width:160; -fx-tab-max-width:160;" tabClosingPolicy="UNAVAILABLE">
+
+    <tabs>
+
+      <!-- ════════════════ PLAYER TAB ════════════════ -->
+      <Tab text="👤  Players">
+        <content>
+          <AnchorPane style="-fx-background-color:#0d0d1a;">
+
+            <!-- Left panel -->
+            <VBox layoutX="14" layoutY="14" prefWidth="210" spacing="10" style="-fx-background-color:#16162a; -fx-background-radius:10; -fx-padding:18;">
+
+              <Label style="-fx-text-fill:#c9a84c; -fx-font-size:10; -fx-font-weight:bold; -fx-letter-spacing:2;" text="PLAYER DETAILS" />
+
+              <TextField fx:id="txt_name" promptText="Full Name" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_age" promptText="Age" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_country" promptText="Country" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_position" promptText="Position (PG/SG/SF/PF/C)" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_salary" promptText="Salary ($)" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+
+              <Label style="-fx-text-fill:#8888aa; -fx-font-size:10; -fx-font-weight:bold; -fx-letter-spacing:2;" text="ASSIGN TEAM" />
+              <ComboBox fx:id="team_cmb" prefWidth="Infinity" promptText="Choose a team" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-border-color:#2a2a44; -fx-border-radius:5;" />
+
+              <!-- Action buttons -->
+              <HBox prefWidth="Infinity" spacing="6">
+                <Button fx:id="addP" prefWidth="90" style="-fx-background-color:#c9a84c; -fx-text-fill:#0d0d1a; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Add" />
+                <Button fx:id="clearP" prefWidth="90" style="-fx-background-color:#2a2a44; -fx-text-fill:#fff; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Clear" />
+              </HBox>
+              <HBox spacing="6">
+                <Button fx:id="updateP" prefWidth="90" style="-fx-background-color:#1e3a2a; -fx-text-fill:#4ccc88; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Update" />
+                <Button fx:id="deleteP" prefWidth="90" style="-fx-background-color:#3a1a1a; -fx-text-fill:#e05555; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Delete" />
+              </HBox>
+
+              <!-- Status message shown after add / update / delete -->
+              <Label fx:id="playerStatusLabel" managed="false" maxWidth="Infinity" style="-fx-font-size:11; -fx-font-weight:bold; -fx-wrap-text:true;" visible="false" wrapText="true" />
+
+            </VBox>
+
+            <!-- Player table -->
+            <TableView fx:id="tblviewPlayer" layoutX="240" layoutY="14" prefHeight="730" prefWidth="844" style="-fx-background-color:#16162a; -fx-background-radius:10; -fx-border-color:#2a2a44; -fx-border-radius:10;">
+              <columns>
+                <TableColumn fx:id="clm_name" prefWidth="175" text="Name" />
+                <TableColumn fx:id="clm_age" prefWidth="60" text="Age" />
+                <TableColumn fx:id="clm_country" prefWidth="130" text="Country" />
+                <TableColumn fx:id="clm_position" prefWidth="60" text="Pos" />
+                <TableColumn fx:id="clm_salary" prefWidth="188.0" text="Salary" />
+                <TableColumn fx:id="clm_teamP" prefWidth="229.0" text="Team" />
+                <TableColumn fx:id="clm_ppg" minWidth="0.0" prefWidth="0.0" text="PPG" />
+                <TableColumn fx:id="clm_apg" minWidth="0.0" prefWidth="0.0" text="APG" />
+                <TableColumn fx:id="clm_rpg" minWidth="0.0" prefWidth="0.0" text="RPG" />
+              </columns>
+              <placeholder>
+                <Label style="-fx-text-fill:#8888aa;" text="No players found." />
+              </placeholder>
+            </TableView>
+
+          </AnchorPane>
+        </content>
+      </Tab>
+
+      <!-- ════════════════ TEAM TAB ════════════════ -->
+      <Tab text="🏆  Teams">
+        <content>
+          <AnchorPane style="-fx-background-color:#0d0d1a;">
+
+            <!-- Left panel -->
+            <VBox layoutX="14" layoutY="14" prefWidth="240" spacing="10" style="-fx-background-color:#16162a; -fx-background-radius:10; -fx-padding:18;">
+
+              <Label style="-fx-text-fill:#c9a84c; -fx-font-size:10; -fx-font-weight:bold; -fx-letter-spacing:2;" text="TEAM DETAILS" />
+
+              <TextField fx:id="txt_team" promptText="Team Name" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_wins" promptText="Wins" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_loses" promptText="Loses" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_WL" editable="false" promptText="W/L% (auto)" style="-fx-background-color:#1a1a2a; -fx-text-fill:#c9a84c; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+              <TextField fx:id="txt_streak" promptText="Streak (e.g. W3)" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-prompt-text-fill:#555; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+
+              <!-- Action buttons -->
+              <HBox spacing="6">
+                <Button fx:id="addT" prefWidth="105" style="-fx-background-color:#c9a84c; -fx-text-fill:#0d0d1a; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Add" />
+                <Button fx:id="clearT" prefWidth="105" style="-fx-background-color:#2a2a44; -fx-text-fill:#fff; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Clear" />
+              </HBox>
+              <HBox spacing="6">
+                <Button fx:id="updateT" prefWidth="105" style="-fx-background-color:#1e3a2a; -fx-text-fill:#4ccc88; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Update" />
+                <Button fx:id="deleteT" prefWidth="105" style="-fx-background-color:#3a1a1a; -fx-text-fill:#e05555; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Delete" />
+              </HBox>
+
+              <!-- Status message shown after add / update / delete -->
+              <Label fx:id="teamStatusLabel" managed="false" maxWidth="Infinity" style="-fx-font-size:11; -fx-font-weight:bold; -fx-wrap-text:true;" visible="false" wrapText="true" />
+
+              <!-- Separator -->
+              <Rectangle fill="#2a2a44" height="1" width="210" />
+
+              <!-- Playoff filter -->
+              <CheckBox fx:id="checkbox" style="-fx-text-fill:#8888aa; -fx-font-size:11;" text="Playoff Teams only (41+ W)" />
+
+              <!-- W/L converter -->
+              <Label style="-fx-text-fill:#c9a84c; -fx-font-size:10; -fx-font-weight:bold; -fx-letter-spacing:2;" text="W/L CONVERTER" />
+              <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label style="-fx-text-fill:#8888aa; -fx-min-width:14;" text="W" />
+                <TextField fx:id="txt_conwins" prefWidth="85" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:7;" />
+              </HBox>
+              <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label style="-fx-text-fill:#8888aa; -fx-min-width:14;" text="L" />
+                <TextField fx:id="txt_conloses" prefWidth="85" style="-fx-background-color:#0d0d1a; -fx-text-fill:#fff; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:7;" />
+              </HBox>
+              <Button fx:id="convert" prefWidth="Infinity" style="-fx-background-color:#2a2a44; -fx-text-fill:#c9a84c; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:8; -fx-cursor:hand;" text="Calculate W/L%" />
+              <TextField fx:id="txt_conWL" editable="false" promptText="Result" style="-fx-background-color:#1a1a2a; -fx-text-fill:#c9a84c; -fx-border-color:#2a2a44; -fx-border-radius:5; -fx-background-radius:5; -fx-padding:8;" />
+            </VBox>
+
+            <!-- Team table -->
+            <TableView fx:id="tblviewTeam" layoutX="270" layoutY="14" prefHeight="730" prefWidth="814" style="-fx-background-color:#16162a; -fx-background-radius:10; -fx-border-color:#2a2a44; -fx-border-radius:10;">
+              <columns>
+                <TableColumn fx:id="clm_team" prefWidth="260" text="Team" />
+                <TableColumn fx:id="clm_wins" prefWidth="107.0" text="Wins" />
+                <TableColumn fx:id="clm_loses" prefWidth="117.0" text="Losses" />
+                <TableColumn fx:id="clm_WL" prefWidth="155.0" text="W/L%" />
+                <TableColumn fx:id="clm_streak" prefWidth="169.0" text="Streak" />
+                <TableColumn fx:id="clm_tppg" minWidth="0.0" prefWidth="0.0" text="PPG" />
+                <TableColumn fx:id="clm_tapg" minWidth="0.0" prefWidth="0.0" text="APG" />
+                <TableColumn fx:id="clm_trpg" minWidth="0.0" prefWidth="0.0" text="RPG" />
+              </columns>
+              <placeholder>
+                <Label style="-fx-text-fill:#8888aa;" text="No teams found." />
+              </placeholder>
+            </TableView>
+
+          </AnchorPane>
+        </content>
+      </Tab>
+
+      <!-- ════════════════ STATISTICS TAB ════════════════ -->
+      <Tab text="📊  Statistics">
+        <content>
+          <AnchorPane style="-fx-background-color:#0d0d1a;">
+
+            <!-- Controls panel -->
+            <VBox layoutX="14" layoutY="14" prefWidth="200" spacing="12" style="-fx-background-color:#16162a; -fx-background-radius:10; -fx-padding:18;">
+
+              <Label style="-fx-text-fill:#c9a84c; -fx-font-size:10; -fx-font-weight:bold; -fx-letter-spacing:2;" text="STATISTICS" />
+
+              <Label style="-fx-text-fill:#8888aa; -fx-font-size:11;" text="Stat Type" />
+              <ComboBox fx:id="Scmb_stat" prefWidth="Infinity" style="-fx-background-color:#0d0d1a; -fx-border-color:#2a2a44; -fx-border-radius:5;" />
+
+              <Label style="-fx-text-fill:#8888aa; -fx-font-size:11;" text="Sort Order" />
+              <ComboBox fx:id="Scmb_sort" prefWidth="Infinity" style="-fx-background-color:#0d0d1a; -fx-border-color:#2a2a44; -fx-border-radius:5;" />
+
+              <Button fx:id="Sbtn_player" prefWidth="Infinity" style="-fx-background-color:#c9a84c; -fx-text-fill:#0d0d1a; -fx-font-weight:bold; -fx-background-radius:5; -fx-padding:10; -fx-cursor:hand;" text="👤  Player Stats" />
+              <Button fx:id="Sbtn_team" prefWidth="Infinity" style="-fx-background-color:#2a2a44; -fx-text-fill:#fff; -fx-background-radius:5; -fx-padding:10; -fx-cursor:hand;" text="🏆  Team Stats" />
+            </VBox>
+
+            <!-- Player stats table -->
+            <TableView fx:id="StblviewPlayer" layoutX="230" layoutY="14" prefHeight="360" prefWidth="854" style="-fx-background-color:#16162a; -fx-background-radius:10; -fx-border-color:#2a2a44;">
+              <columns>
+                <TableColumn fx:id="Sclm_player" prefWidth="280" text="Player" />
+                <TableColumn fx:id="Sclm_Pppg" prefWidth="185" text="PPG" />
+                <TableColumn fx:id="Sclm_Papg" prefWidth="185" text="APG" />
+                <TableColumn fx:id="Sclm_Prpg" prefWidth="200" text="RPG" />
+              </columns>
+              <placeholder>
+                <Label style="-fx-text-fill:#8888aa;" text="No player stats." />
+              </placeholder>
+            </TableView>
+
+            <!-- Team stats table -->
+            <TableView fx:id="StblviewTeam" layoutX="230" layoutY="390" prefHeight="360" prefWidth="854" style="-fx-background-color:#16162a; -fx-background-radius:10; -fx-border-color:#2a2a44;" visible="false">
+              <columns>
+                <TableColumn fx:id="Sclm_Team" prefWidth="280" text="Team" />
+                <TableColumn fx:id="Sclm_Tppg" prefWidth="185" text="PPG" />
+                <TableColumn fx:id="Sclm_Tapg" prefWidth="185" text="APG" />
+                <TableColumn fx:id="Sclm_Trpg" prefWidth="200" text="RPG" />
+              </columns>
+              <placeholder>
+                <Label style="-fx-text-fill:#8888aa;" text="No team stats." />
+              </placeholder>
+            </TableView>
+
+          </AnchorPane>
+        </content>
+      </Tab>
+
+    </tabs>
+  </TabPane>
+
+</AnchorPane>
